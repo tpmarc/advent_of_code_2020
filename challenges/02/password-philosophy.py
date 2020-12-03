@@ -23,7 +23,7 @@ def validate_password_by_position(policy, password):
     letter_least = password[policy['least'] - 1]
     letter_most = password[policy['most'] - 1]
 
-    return letter_least != letter_most and (letter_least == policy['letter'] or letter_most == policy['letter'])
+    return (letter_least == policy['letter']) != (letter_most == policy['letter'])
 
 
 with open('inputs.txt', 'r') as file:

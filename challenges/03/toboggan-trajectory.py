@@ -3,16 +3,16 @@ import functools
 TREE_SYMBOL = '#'
 
 
-def count_trees_for(map_to_trace_path, slope):
+def count_trees_for(map_to_count_trees, slope):
     slope_right, slope_down = slope
-    height = len(map_to_trace_path)
-    width = len(map_to_trace_path[0])
+    height = len(map_to_count_trees)
+    width = len(map_to_count_trees[0])
     right, down, trees_counter = 0, 0, 0
 
     while down < height - 1:
         down += slope_down
         right = right + slope_right if right + slope_right < width else right + slope_right - width
-        trees_counter = 1 + trees_counter if map_to_trace_path[down][right] is TREE_SYMBOL else trees_counter
+        trees_counter = 1 + trees_counter if map_to_count_trees[down][right] is TREE_SYMBOL else trees_counter
 
     return trees_counter
 

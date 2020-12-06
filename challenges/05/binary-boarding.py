@@ -1,9 +1,8 @@
-def find_seat_position(word, word_piece, whole_range):
+def find_seat_position(word_piece, whole_range):
     least, most = whole_range
-    min_in_range, max_in_range = word_piece
 
-    for cursor in range(min_in_range, max_in_range):
-        if word[cursor] in ['F', 'L']:
+    for char in word_piece:
+        if char in ['F', 'L']:
             least, most = (least, most - int((most - least) / 2) - 1)
         else:
             least, most = least + int((most - least) / 2) + 1, most
@@ -12,11 +11,11 @@ def find_seat_position(word, word_piece, whole_range):
 
 
 def find_seat_row(word):
-    return find_seat_position(word, [0, 7], [0, 127])
+    return find_seat_position(word[:7], [0, 127])
 
 
 def find_seat_column(word):
-    return find_seat_position(word, [7, 10], [0, 7])
+    return find_seat_position(word[7:], [0, 7])
 
 
 def calculate_seat_id(row, column):

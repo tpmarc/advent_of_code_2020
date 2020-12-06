@@ -19,8 +19,8 @@ def find_seat_column(word):
     return find_seat_position(word, [7, 10], [0, 7])
 
 
-def calculate_seat_id(r, c):
-    return (r * 8) + c
+def calculate_seat_id(row, column):
+    return (row * 8) + column
 
 
 with open('inputs.txt', 'r') as file:

@@ -3,6 +3,7 @@ import functools
 
 def calculate_questions(group_answers):
     answers_by_person = group_answers.split('\n')
+
     return set("".join(answers_by_person))
 
 
@@ -11,7 +12,6 @@ def find_answered_by_everyone(group_answers):
     persons_count = len(answers_by_person)
     all_answers = "".join(answers_by_person)
     answers_count = [[letter, all_answers.count(letter)] for letter in set(all_answers)]
-
     answered_by_everyone = [answer_count[0] for answer_count in answers_count if answer_count[1] == persons_count]
 
     return answered_by_everyone
